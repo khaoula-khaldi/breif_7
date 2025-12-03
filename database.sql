@@ -1,7 +1,7 @@
 --creation de la base de données 
-CREATE DATABASE smart walet; 
+CREATE DATABASE smart_alet; 
 --entre dans la base de données
-USe smart walet;
+USe smart_walet;
 --creation de tableau Incomes 
 CREATE TABLE Incomes (
     id int PRIMARY KEY AUTO_INCREMENT,

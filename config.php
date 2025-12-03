@@ -1,7 +1,7 @@
 <?php 
 $host = "localhost";
 $username = "root";
-$dbname= "smart walet";
+$dbname= "smart_walet";
 $pass = "";
 
 try{
