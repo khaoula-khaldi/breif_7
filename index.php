@@ -1,4 +1,17 @@
-<?php include 'config.php'; ?>
+<?php include 'config.php'; 
+if ($_SERVER['REQUEST_METHOD']==='POST'){//knchof ina methode 
+  if(isset($_POST['ajouter_revenu'])){//ina button tclika 3leha 
+    $montant=$_POST['montant'];//knjibo dok les varoiiabvle oknstokiwhom fi variable 
+    $date=$_POST['date'];
+    $description=$_POST['description'];
+    $stmt=$PDO->prepare("INSERT INTO incomes (Montant,descreption,date_enter) values (?,?,?)");//knprepariw deeq lblasa li ghade that feha data 
+    $stmt->execute($montant,$date,$description);//knhto deek dat fi 
+  }
+}
+else{
+  echo'khaoula';
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,10 +78,10 @@
           </thead>
         </table>
 
-        <form  class="flex items-center gap-3">
-          <input type="number" placeholder="Montant" class="border border-gray-300 p-2 rounded w-1/4">
-          <input type="text" placeholder="Description" class="border border-gray-300 p-2 rounded flex-1">
-          <input type="date" class="border border-gray-300 p-2 rounded w-1/4">
+        <form  name="ajouter_revenu"  class="flex items-center gap-3">
+          <input type="number" name="montant" placeholder="Montant" class="border border-gray-300 p-2 rounded w-1/4">
+          <input type="text" name="description" placeholder="Description" class="border border-gray-300 p-2 rounded flex-1">
+          <input type="date" name="date" class="border border-gray-300 p-2 rounded w-1/4">
           <button class="bg-pink-300 hover:bg-pink-400 text-white px-4 py-2 rounded shadow">Ajouter</button>
         </form>
       </section>
@@ -89,7 +102,7 @@
         </table>
 
         <form  class="flex items-center gap-3">
-          <input type="number" placeholder="Montant" class="border border-gray-300 p-2 rounded w-1/4">
+          <input type="number" name="ajouter_despenses" placeholder="Montant" class="border border-gray-300 p-2 rounded w-1/4">
           <input type="text" placeholder="Description" class="border border-gray-300 p-2 rounded flex-1">
           <input type="date" class="border border-gray-300 p-2 rounded w-1/4">
           <button class="bg-red-300 hover:bg-red-400 text-white px-4 py-2 rounded shadow">Ajouter</button>
