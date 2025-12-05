@@ -1,16 +1,15 @@
-<?php 
+<?php
 $host = "localhost";
 $username = "root";
-$dbname= "smart_walet";
-$pass = "";
+$password = "";
+$dbname = "smart_walet";
 
-try{
-   $PDO=NEW PDO("mysql:root=$host;dbname=$dbname",$username,$pass);
+$conn = new mysqli($host, $username, $password, $dbname);
 
-}catch(PDOException $erreur){
-    die("Erreur de connexion".$erreur->getMessage());
-};
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+?>
 
 
-?> 
- 
+

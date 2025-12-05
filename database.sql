@@ -1,19 +1,19 @@
 --creation de la base de données 
-CREATE DATABASE smart_alet; 
+CREATE DATABASE smart_walet; 
 --entre dans la base de données
 USe smart_walet;
 --creation de tableau Incomes 
 CREATE TABLE Incomes (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    Montant DECIMAL(8,3) NOT NULL,
-    descreption varchar(255) NOT NULL,
-    date_enter DATE NOT NULL
+    idIn int PRIMARY KEY AUTO_INCREMENT,
+    MontantIn DECIMAL(10,2) NOT NULL,
+    descreptionIn varchar(255) NOT NULL,
+    date_enterIn DATE NOT NULL
 );
 
 --creation de tableau Expenses  
 CREATE TABLE Expenses  (
-    id int PRIMARY KEY AUTO_INCREMENT,
-    Montant DECIMAL(8,3) NOT NULL,
-    descreption varchar(255) NOT NULL,
-    date_enter DATE NOT NULL
+    idEx int PRIMARY KEY AUTO_INCREMENT,
+    MontantEx DECIMAL(10,2) NOT NULL,
+    descreptionEx varchar(255) NOT NULL,
+    date_enterEx DATE NOT NULL
 );
