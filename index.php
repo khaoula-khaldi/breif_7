@@ -80,7 +80,7 @@ include 'config.php';
                               <td class=\"p-2 border-r border-gray-300\">{$row['date_enterEx']}</td>
                               <td class=\"p-2\"> 
                               <div class=\" flex flex-row gap-2\">
-                              <form action=\"modification.php\" method=\"GET\">
+                              <form action=\"modificationEx.php\" method=\"GET\">
                               <input name=\"id\" type=\"text\" class=\"hidden\" value=\"{$row['idEx']}\"/>
                               <button type=\"submit\" name=\"modifier_Expenses\" class=\"bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-2\">Modifier</button>
                               </form>
@@ -120,7 +120,7 @@ include 'config.php';
                                   <td class=\"p-2 border-r border-gray-300\">{$row['date_enterIn']}</td>
                                   <td class=\"p-2\">
                                   <div class=\" flex flex-row gap-2\">
-                                  <form action=\"modification.php\" method=\"GET\">
+                                  <form action=\"modificationIn.php\" method=\"GET\">
                                   <input name=\"id\" type=\"text\" class=\"hidden\" value=\"{$row['idIn']}\"/>
                                   <button type=\"submit\" name=\"modifier_incomes\" class=\"bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 mr-2\">Modifier</button>
                                   </form>
