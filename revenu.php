@@ -1,8 +1,8 @@
 <?php
 include 'config.php';
 
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {//chof wash kyn methode post
-    if (isset($_POST['ajouter_revenu'])) {//
+ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['ajouter_revenu'])) {
         $montantIn = $_POST['montantIn'] ;
         $descriptionIn = $_POST['descriptionIn'] ;
         $dateIn = $_POST['dateIn'] ;

@@ -8,7 +8,6 @@
     <title>despenses</title>
 </head>
 <body class=" flex flex-col gap-5 font-sans text-gray-800 bg-purple-100">
-
   <nav class="w-full shadow-md p-4 mb-6 bg-purple-200">
     <h1 class="text-center text-2xl font-bold text-gray-800">Gestion Financière</h1>
   </nav>
@@ -34,9 +33,7 @@
 </html>
 
 <?php
-
-
- if ($_SERVER['REQUEST_METHOD'] === 'POST') {//chof wash kyn methode post
+ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['ajouter_depenses'])) {
         $montantEx = $_POST['montantEx'] ;
         $descriptionEx = $_POST['descriptionEx'] ;
@@ -47,7 +44,4 @@
         $stmt->close();
     }
 }
-
-// $total_incomes_result = $conn->query("SELECT SUM(MontantEx) as total FROM expenses ");
-// $total_incomes = $total_incomes_result->fetch_assoc()['total'] ?? 0;
 ?>

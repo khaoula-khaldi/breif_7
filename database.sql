@@ -1,6 +1,6 @@
 --creation de la base de données 
 CREATE DATABASE smart_walet; 
---entre dans la base de données
+
 USe smart_walet;
 --creation de tableau Incomes 
 CREATE TABLE Incomes (

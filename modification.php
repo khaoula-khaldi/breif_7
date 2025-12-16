@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_Expenses'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -29,24 +30,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_Expenses'])) {
         </h2>
 
         <form action="modification.php" method="POST" class="space-y-4">
-
-            <input type="hidden" name="id" value="<?= $row['idEx'] ?>">
+ 
+            <input type="hidden" name="id" value="<?php echo $row['idEx'];  ?>">
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Montant</label>
-                <input type="text" name="MontantEx" value="<?= $row['MontantEx'] ?>"
+                <input type="text" name="MontantEx" value="<?php echo $row['MontantEx'] ;?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Description</label>
-                <input type="text" name="descreptionEx" value="<?= $row['descreptionEx'] ?>"
+                <input type="text" name="descreptionEx" value="<?php echo $row['descreptionEx']; ?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Date</label>
-                <input type="date" name="date_enterEx" value="<?= $row['date_enterEx'] ?>"
+                <input type="date" name="date_enterEx" value="<?php echo $row['date_enterEx']; ?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
@@ -64,18 +65,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_Expenses'])) {
 
 
 <?php
-    exit;
-}
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_Expenses'])) {
 
     $id = $_POST['id'];
     $montant = $_POST['MontantEx'];
-    $desc = $_POST['descreptionEx'];
+    $description = $_POST['descreptionEx'];
     $date = $_POST['date_enterEx'];
 
     $stmt = $conn->prepare("UPDATE expenses SET MontantEx = ?, descreptionEx = ?, date_enterEx = ? WHERE idEx = ?");
-    $stmt->bind_param("sssi", $montant, $desc, $date, $id);
+    $stmt->bind_param("sssi", $montant, $description, $date, $id);
 
     if ($stmt->execute()) {
         header("Location: index.php");
@@ -90,7 +90,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_Expenses'])) {
 
 
 
+
+
 // incomes
+
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_incomes'])) {
 
     $ID = $_GET['id'];
@@ -100,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_incomes'])) {
     $stmt->execute();
     $result = $stmt->get_result();
     $row = $result->fetch_assoc();
+}
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -119,27 +123,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_incomes'])) {
 
         <form action="modification.php" method="POST" class="space-y-4">
 
-            <input type="hidden" name="id" value="<?= $row['idIn'] ?>">
+            <input type="hidden" name="id" value="<?php echo $row['idIn'] ; ?>">
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Montant</label>
-                <input type="text" name="MontantIn" value="<?= $row['MontantIn'] ?>"
+                <input type="text" name="MontantIn" value="<?php echo $row['MontantIn']; ?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Description</label>
-                <input type="text" name="descreptionIn" value="<?= $row['descreptionIn'] ?>"
+                <input type="text" name="descreptionIn" value="<?php echo $row['descreptionIn']; ?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
             <div>
                 <label class="block font-semibold text-gray-700 mb-1">Date</label>
-                <input type="date" name="date_enterIn" value="<?= $row['date_enterIn'] ?>"
+                <input type="date" name="date_enterIn" value="<?php echo $row['date_enterIn']; ?>"
                        class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
             </div>
 
-            <button type="submit" name="update_Inpenses"
+            <button type="submit" name="update_incomes"
                     class="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition">
                 Enregistrer
             </button>
@@ -153,19 +157,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['modifier_incomes'])) {
 
 
 <?php
-    exit;
-}
-
-
+  
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_incomes'])) {
 
     $id = $_POST['id'];
     $montant = $_POST['MontantIn'];
-    $desc = $_POST['descreptionIn'];
+    $description = $_POST['descreptionIn'];
     $date = $_POST['date_enterIn'];
 
     $stmt = $conn->prepare("UPDATE incomes SET MontantIn = ?, descreptionIn = ?, date_enterIn = ? WHERE idIn = ?");
-    $stmt->bind_param("sssi", $montant, $desc, $date, $id);
+    $stmt->bind_param("sssi", $montant, $description, $date, $id);
 
     if ($stmt->execute()) {
         header("Location: index.php");
